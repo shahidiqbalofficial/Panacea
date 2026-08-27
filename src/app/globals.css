@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #0f172a;
+  background: #ffffff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+  .shadow-soft {
+    box-shadow: 0 10px 40px -12px rgba(6, 78, 59, 0.18);
+  }
+
+  .shadow-card {
+    box-shadow: 0 8px 30px -10px rgba(6, 95, 70, 0.15);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.15), 0 20px 50px -20px rgba(16, 185, 129, 0.45);
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Primary CTA — emerald with soft glow */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-600 to-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all hover:from-brand-700 hover:to-brand-600 hover:shadow-xl hover:shadow-brand-600/30 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2;
+  }
+
+  /* Gold CTA — premium highlight */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-500 to-gold-400 px-6 py-3 text-sm font-semibold text-brand-950 shadow-lg shadow-gold-500/30 transition-all hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-gold-300 focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-500 px-6 py-3 text-sm font-semibold text-brand-700 transition-all hover:bg-brand-500 hover:text-white hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2;
+  }
+
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .eyebrow {
+    @apply mb-3 inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-600;
+  }
+
+  .heading {
+    @apply text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl;
+  }
+
+  /* Elevated card with gradient top accent on hover */
+  .card {
+    @apply relative rounded-2xl border border-slate-100 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-200 hover:shadow-glow;
+  }
+
+  /* Section title divider */
+  .title-divider {
+    @apply mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-brand-500 to-accent-500;
+  }
+}
+
+/* Subtle grid backdrop */
+.bg-grid {
+  background-image: linear-gradient(to right,
+      rgba(16, 185, 129, 0.07) 1px,
+      transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Dotted backdrop for dark sections */
+.bg-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Animated gradient text */
+.text-gradient {
+  @apply bg-gradient-to-r from-brand-600 via-accent-500 to-brand-500 bg-clip-text text-transparent;
+  background-size: 200% auto;
+}
